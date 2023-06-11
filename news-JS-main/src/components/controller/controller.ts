@@ -1,5 +1,5 @@
 import AppLoader from './appLoader';
-import { IAppViewDrow, IDrawSources } from '../../types/index';
+import { IAppViewDrow, IDrawSources } from '../../types/types';
 
 class AppController extends AppLoader {
     public getSources(callback: (data?: IDrawSources) => void) {

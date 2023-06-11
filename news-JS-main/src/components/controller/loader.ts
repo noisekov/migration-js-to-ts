@@ -1,4 +1,4 @@
-import { ILoaderOptions, Options } from '../../types/index';
+import { ILoaderOptions, Options } from '../../types/types';
 
 class Loader {
     baseLink;
@@ -46,7 +46,7 @@ class Loader {
             .then(this.errorHandler)
             .then((res) => res.json())
             .then((data: string): void => callback(data))
-            .catch((err) => console.error(err));
+            .catch((err: Error) => console.error(err));
     }
 }
 
