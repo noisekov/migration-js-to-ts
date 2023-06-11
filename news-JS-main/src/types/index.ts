@@ -56,3 +56,19 @@ export interface IDrawSources {
     ];
     status: string;
 }
+
+export interface IOptions {
+    sources: string;
+}
+
+export interface ILoaderOptions {
+    apiKey: string;
+}
+
+export type Options =
+    | Partial<{
+          sources?: string;
+          // category?: string;
+          // language?: string;
+      }>
+    | undefined;
