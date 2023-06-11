@@ -8,6 +8,20 @@ header {
     padding: 10px 30px;
 }
 
+/* .sources__find {
+    display: flex;
+    justify-content: center;
+}
+
+.sources__find input {
+    border: 2px solid #30c5ff;
+    font: inherit;
+    line-height: 1;
+    margin: 0.2em;
+    padding: 1em 2em;
+    color: #70d6ff;
+} */
+
 header h1 {
     font-size: 40px;
     font-weight: 800;

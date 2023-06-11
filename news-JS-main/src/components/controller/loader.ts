@@ -20,7 +20,7 @@ class Loader {
         }
     }
 
-    protected errorHandler(res: Response): Response {
+    private errorHandler(res: Response): Response {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -30,7 +30,7 @@ class Loader {
         return res;
     }
 
-    protected makeUrl(options: Options, endpoint: string) {
+    private makeUrl(options: Options, endpoint: string) {
         const urlOptions: ILoaderOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -41,11 +41,11 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    protected load(method: string, endpoint: string, callback: (data: string) => void, options = {}) {
+    private load(method: string, endpoint: string, callback: (data: string) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            .then((data: string): void => callback(data))
             .catch((err) => console.error(err));
     }
 }

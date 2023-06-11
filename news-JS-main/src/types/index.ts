@@ -23,37 +23,13 @@ export interface ISources {
 }
 
 export interface IAppViewDrow {
-    articles: [
-        {
-            author: string;
-            content: string;
-            description: string;
-            publishedAt: string;
-            source: {
-                id: string;
-                name: string;
-            };
-            title: string;
-            url: string;
-            urlToImage: string;
-        }
-    ];
+    articles: INews[];
     status: string;
     totalResults: number;
 }
 
 export interface IDrawSources {
-    sources: [
-        {
-            category: string;
-            country: string;
-            description: string;
-            id: string;
-            language: string;
-            name: string;
-            url: string;
-        }
-    ];
+    sources: ISources[];
     status: string;
 }
 
@@ -68,7 +44,5 @@ export interface ILoaderOptions {
 export type Options =
     | Partial<{
           sources?: string;
-          // category?: string;
-          // language?: string;
       }>
     | undefined;
