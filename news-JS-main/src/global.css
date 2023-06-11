@@ -11,15 +11,15 @@ header {
 .sources__find {
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 }
 
 .sources__find input {
     border: 2px solid #30c5ff;
     font: inherit;
     line-height: 1;
-    margin: 0.2em;
-    padding: 1em 2em;
-    color: #70d6ff;
+    padding: 0.5em 1em;
+    color: #000;
 }
 
 header h1 {

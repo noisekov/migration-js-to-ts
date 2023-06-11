@@ -8,6 +8,11 @@
     font: 300 1em 'Fira Sans', sans-serif;
 }
 
+@media (max-width: 480px) {
+    .sources {
+        flex-direction: column;
+    }
+}
 .source__item {
     background: none;
     border: 2px solid #30c5ff;

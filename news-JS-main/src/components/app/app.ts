@@ -1,5 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
+import FindNews from '../view/findNews';
 
 class App {
     controller: AppController;
@@ -8,6 +9,7 @@ class App {
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
+        new FindNews();
     }
 
     public start() {
