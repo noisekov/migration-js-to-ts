@@ -1,11 +1,11 @@
 import AppLoader from './appLoader';
-import { IAppViewDrow, IDrawSources } from '../../types/types';
+import { IAppViewDrow, IDrawSources, Endpoint } from '../../types/types';
 
 class AppController extends AppLoader {
     public getSources(callback: (data?: IDrawSources) => void): void {
         super.getResp(
             {
-                endpoint: 'sources',
+                endpoint: Endpoint.SOURCES,
             },
             callback
         );
@@ -26,7 +26,7 @@ class AppController extends AppLoader {
                                     newsContainer.setAttribute('data-source', sourceId);
                                     super.getResp(
                                         {
-                                            endpoint: 'everything',
+                                            endpoint: Endpoint.EVERYTHING,
                                             options: {
                                                 sources: sourceId,
                                             },

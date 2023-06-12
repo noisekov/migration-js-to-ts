@@ -1,4 +1,4 @@
-import { ILoaderOptions, Options } from '../../types/types';
+import { ILoaderOptions, Options, Endpoint } from '../../types/types';
 
 class Loader {
     baseLink;
@@ -10,14 +10,12 @@ class Loader {
     }
 
     protected getResp(
-        { endpoint, options = {} }: { endpoint?: string; options?: Options },
+        { endpoint, options = {} }: { endpoint: Endpoint; options?: Options },
         callback = (): void => {
             console.error('No callback for GET response');
         }
     ): void {
-        if (endpoint) {
-            this.load('GET', endpoint, callback, options);
-        }
+        this.load('GET', endpoint, callback, options);
     }
 
     private errorHandler(res: Response): Response {
@@ -30,7 +28,7 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options: Options, endpoint: string): string {
+    private makeUrl(options: Options, endpoint: Endpoint): string {
         const urlOptions: ILoaderOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -41,7 +39,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: string, endpoint: string, callback: (data: string) => void, options = {}): void {
+    private load(method: string, endpoint: Endpoint, callback: (data: string) => void, options = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

@@ -46,3 +46,8 @@ export type Options =
           sources: string;
       }>
     | undefined;
+
+export enum Endpoint {
+    EVERYTHING = 'everything',
+    SOURCES = 'sources',
+}
