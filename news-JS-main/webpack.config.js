@@ -22,7 +22,7 @@ const baseConfig = {
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -35,7 +35,7 @@ const baseConfig = {
             patterns: [
                 {
                     from: path.resolve(__dirname, 'src', 'img', 'news_placeholder.jpg'),
-                    to: path.resolve(__dirname, '../dist', 'img', 'news_placeholder.jpg'),
+                    to: path.resolve(__dirname, 'dist', 'img', 'news_placeholder.jpg'),
                 },
             ],
         }),
