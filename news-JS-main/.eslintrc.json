@@ -7,7 +7,7 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "ignorePatterns": ["webpack.config.js"],
+    "ignorePatterns": ["webpack.config.js", "webpack.dev.config.js"],
     "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module"
