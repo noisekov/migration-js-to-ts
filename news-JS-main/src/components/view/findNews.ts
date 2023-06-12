@@ -2,7 +2,7 @@ class FindNews {
     constructor() {
         this.init();
     }
-    private init() {
+    private init(): void {
         const inputFind: HTMLInputElement | null = document.querySelector('.sources__find input');
         if (inputFind) {
             const allNews: HTMLDivElement | null = document.querySelector('.sources');

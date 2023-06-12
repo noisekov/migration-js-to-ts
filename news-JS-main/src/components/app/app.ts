@@ -12,7 +12,7 @@ class App {
         new FindNews();
     }
 
-    public start() {
+    public start(): void {
         const sources: HTMLDivElement | null = document.querySelector('.sources');
         if (sources) {
             sources.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));

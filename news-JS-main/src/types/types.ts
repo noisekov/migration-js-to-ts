@@ -43,6 +43,6 @@ export interface ILoaderOptions {
 
 export type Options =
     | Partial<{
-          sources?: string;
+          sources: string;
       }>
     | undefined;
