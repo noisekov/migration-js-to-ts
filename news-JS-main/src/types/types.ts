@@ -51,3 +51,5 @@ export enum Endpoint {
     EVERYTHING = 'everything',
     SOURCES = 'sources',
 }
+
+export type simpleCallback = (data: string) => void;

@@ -1,4 +1,4 @@
-import { ILoaderOptions, Options, Endpoint } from '../../types/types';
+import { ILoaderOptions, Options, Endpoint, simpleCallback } from '../../types/types';
 
 class Loader {
     baseLink;
@@ -39,7 +39,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: string, endpoint: Endpoint, callback: (data: string) => void, options = {}): void {
+    private load(method: string, endpoint: Endpoint, callback: simpleCallback, options = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
