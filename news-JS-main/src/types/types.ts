@@ -50,7 +50,7 @@ export enum Endpoint {
     SOURCES = 'sources',
 }
 
-export type simpleCallback = (data: string) => void;
+export type dataSourcesOrNews = (data: object) => void;
 
 export type apiSourcesCallback = (data?: IApiSourcesData) => void;
 

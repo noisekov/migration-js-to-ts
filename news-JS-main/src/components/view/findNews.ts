@@ -3,11 +3,11 @@ class FindNews {
         this.init();
     }
 
-    private init(): void {
+    private init() {
         const inputFind: HTMLInputElement | null = document.querySelector('.sources__find input');
         if (inputFind) {
             const allNews: HTMLDivElement | null = document.querySelector('.sources');
-            inputFind.addEventListener('input', (): void => {
+            inputFind.addEventListener('input', () => {
                 if (allNews) {
                     [...allNews.children].filter((elem) => {
                         if (elem instanceof HTMLDivElement) {

@@ -1,4 +1,4 @@
-import { Options, Endpoint, simpleCallback, UrlOptions, typeMethod } from '../../types/types';
+import { Options, Endpoint, dataSourcesOrNews, UrlOptions, typeMethod } from '../../types/types';
 
 class Loader {
     constructor(private readonly baseLink: string, private readonly options: UrlOptions) {}
@@ -33,11 +33,11 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: typeMethod, endpoint: Endpoint, callback: simpleCallback, options = {}): void {
+    private load(method: typeMethod, endpoint: Endpoint, callback: dataSourcesOrNews, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data: string): void => callback(data))
+            .then((data: object): void => callback(data))
             .catch((err: Error) => console.error(err));
     }
 }
