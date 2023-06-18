@@ -9,7 +9,6 @@ class App {
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
-        new FindNews();
     }
 
     public start(): void {
@@ -21,4 +20,5 @@ class App {
     }
 }
 
+new FindNews();
 export default App;

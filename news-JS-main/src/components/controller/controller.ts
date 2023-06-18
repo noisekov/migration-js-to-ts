@@ -1,5 +1,5 @@
 import AppLoader from './appLoader';
-import { IAppViewDrow, IDrawSources, Endpoint } from '../../types/types';
+import { IAppViewDraw, IDrawSources, Endpoint } from '../../types/types';
 
 class AppController extends AppLoader {
     public getSources(callback: (data?: IDrawSources) => void): void {
@@ -11,35 +11,29 @@ class AppController extends AppLoader {
         );
     }
 
-    public getNews(e: Event, callback: (data?: IAppViewDrow) => void): void {
+    public getNews(e: Event, callback: (data?: IAppViewDraw) => void): void {
         let target: EventTarget | null = e.target;
         const newsContainer = e.currentTarget;
 
         while (target !== newsContainer) {
-            if (target) {
-                if (target instanceof HTMLElement) {
-                    if (target.classList.contains('source__item')) {
-                        const sourceId: string | null = target.getAttribute('data-source-id');
-                        if (newsContainer instanceof HTMLElement) {
-                            if (sourceId) {
-                                if (newsContainer.getAttribute('data-source') !== sourceId) {
-                                    newsContainer.setAttribute('data-source', sourceId);
-                                    super.getResp(
-                                        {
-                                            endpoint: Endpoint.EVERYTHING,
-                                            options: {
-                                                sources: sourceId,
-                                            },
-                                        },
-                                        callback
-                                    );
-                                }
-                            }
-                            return;
-                        }
+            if (target && target instanceof HTMLElement && target.classList.contains('source__item')) {
+                const sourceId: string | null = target.getAttribute('data-source-id');
+                if (newsContainer instanceof HTMLElement && sourceId) {
+                    if (newsContainer.getAttribute('data-source') !== sourceId) {
+                        newsContainer.setAttribute('data-source', sourceId);
+                        super.getResp(
+                            {
+                                endpoint: Endpoint.EVERYTHING,
+                                options: {
+                                    sources: sourceId,
+                                },
+                            },
+                            callback
+                        );
                     }
-                    target = target.parentNode;
+                    return;
                 }
+                target = target.parentNode;
             }
         }
     }

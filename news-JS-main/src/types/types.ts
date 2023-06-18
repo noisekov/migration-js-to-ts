@@ -22,7 +22,7 @@ export interface ISources {
     url: string;
 }
 
-export interface IAppViewDrow {
+export interface IAppViewDraw {
     articles: INews[];
     status: string;
     totalResults: number;
