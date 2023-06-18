@@ -41,11 +41,7 @@ export interface ILoaderOptions {
     apiKey: string;
 }
 
-export type Options =
-    | Partial<{
-          sources: string;
-      }>
-    | undefined;
+export type Options = Partial<IOptions> | undefined;
 
 export enum Endpoint {
     EVERYTHING = 'everything',

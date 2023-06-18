@@ -12,14 +12,12 @@ export class AppView {
     }
 
     public drawNews(data: IAppViewDraw | undefined): void {
-        const values = data?.articles ? data?.articles : [];
+        const values = data?.articles ?? [];
         this.news.draw(values);
     }
 
     public drawSources(data: IDrawSources | undefined): void {
-        const values = data?.sources ? data?.sources : [];
+        const values = data?.sources ?? [];
         this.sources.draw(values);
     }
 }
-
-export default AppView;
