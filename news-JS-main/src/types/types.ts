@@ -55,3 +55,5 @@ export type simpleCallback = (data: string) => void;
 export type apiSourcesCallback = (data?: IApiSourcesData) => void;
 
 export type apiNewsCallback = (data?: IApiNewsData) => void;
+
+export type typeMethod = 'GET' | 'POST';
