@@ -1,8 +1,8 @@
 import AppLoader from './appLoader';
-import { IAppViewDraw, IDrawSources, Endpoint } from '../../types/types';
+import { apiSourcesCallback, apiNewsCallback, Endpoint } from '../../types/types';
 
 class AppController extends AppLoader {
-    public getSources(callback: (data?: IDrawSources) => void): void {
+    public getSources(callback: apiNewsCallback): void {
         super.getResp(
             {
                 endpoint: Endpoint.SOURCES,
@@ -11,7 +11,7 @@ class AppController extends AppLoader {
         );
     }
 
-    public getNews(e: Event, callback: (data?: IAppViewDraw) => void): void {
+    public getNews(e: Event, callback: apiSourcesCallback): void {
         let target: EventTarget | null = e.target;
         const newsContainer = e.currentTarget;
 

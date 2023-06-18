@@ -22,13 +22,13 @@ export interface ISources {
     url: string;
 }
 
-export interface IAppViewDraw {
+export interface IApiSourcesData {
     articles: INews[];
     status: string;
     totalResults: number;
 }
 
-export interface IDrawSources {
+export interface IApiNewsData {
     sources: ISources[];
     status: string;
 }
@@ -49,3 +49,7 @@ export enum Endpoint {
 }
 
 export type simpleCallback = (data: string) => void;
+
+export type apiSourcesCallback = (data?: IApiSourcesData) => void;
+
+export type apiNewsCallback = (data?: IApiNewsData) => void;
