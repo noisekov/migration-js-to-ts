@@ -34,8 +34,8 @@ class AppController extends AppLoader {
                         }
                         return;
                     }
-                    target = target.parentNode;
                 }
+                target = target.parentNode;
             }
         }
     }
