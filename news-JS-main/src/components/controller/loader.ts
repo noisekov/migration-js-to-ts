@@ -1,13 +1,7 @@
 import { ILoaderOptions, Options, Endpoint, simpleCallback } from '../../types/types';
 
 class Loader {
-    baseLink;
-    options;
-
-    constructor(baseLink: string, options: ILoaderOptions) {
-        this.baseLink = baseLink;
-        this.options = options;
-    }
+    constructor(private readonly baseLink: string, private readonly options: ILoaderOptions) {}
 
     protected getResp(
         { endpoint, options = {} }: { endpoint: Endpoint; options?: Options },
