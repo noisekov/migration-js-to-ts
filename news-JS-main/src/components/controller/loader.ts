@@ -1,7 +1,7 @@
-import { ILoaderOptions, Options, Endpoint, simpleCallback } from '../../types/types';
+import { Options, Endpoint, simpleCallback, UrlOptions } from '../../types/types';
 
 class Loader {
-    constructor(private readonly baseLink: string, private readonly options: ILoaderOptions) {}
+    constructor(private readonly baseLink: string, private readonly options: UrlOptions) {}
 
     protected getResp(
         { endpoint, options = {} }: { endpoint: Endpoint; options?: Options },
@@ -23,7 +23,7 @@ class Loader {
     }
 
     private makeUrl(options: Options, endpoint: Endpoint): string {
-        const urlOptions: ILoaderOptions = { ...this.options, ...options };
+        const urlOptions: UrlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.entries(urlOptions).forEach((key) => {

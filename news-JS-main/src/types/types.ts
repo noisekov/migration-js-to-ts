@@ -41,6 +41,8 @@ export interface ILoaderOptions {
     apiKey: string;
 }
 
+export type UrlOptions = Options & ILoaderOptions;
+
 export type Options = Partial<IOptions> | undefined;
 
 export enum Endpoint {
