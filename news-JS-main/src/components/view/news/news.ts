@@ -13,39 +13,31 @@ class News {
                 const newsClone = newsItemTemp.content.cloneNode(true);
                 if (newsClone instanceof DocumentFragment) {
                     const newsItem: HTMLElement | null = newsClone.querySelector('.news__item');
-                    if (newsItem) {
-                        if (idx % 2) newsItem.classList.add('alt');
-                        const metaPhoto: HTMLDivElement | null = newsClone.querySelector('.news__meta-photo');
-                        if (metaPhoto) {
-                            metaPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news-placeholder.jpg'})`;
-                            const metaAuthor: HTMLLIElement | null = newsClone.querySelector('.news__meta-author');
-                            if (metaAuthor) {
-                                metaAuthor.textContent = item.author || item.source.name;
-                                const metaDate: HTMLLIElement | null = newsClone.querySelector('.news__meta-date');
-                                if (metaDate) {
-                                    metaDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
-                                    const descriptionTitle: HTMLHeadingElement | null = newsClone.querySelector(
-                                        '.news__description-title'
-                                    );
-                                    const descriptionSource: HTMLHeadingElement | null = newsClone.querySelector(
-                                        '.news__description-source'
-                                    );
-                                    const descriptionContent: HTMLParagraphElement | null = newsClone.querySelector(
-                                        '.news__description-content'
-                                    );
-                                    const readMore: HTMLParagraphElement | null = newsClone.querySelector(
-                                        '.news__read-more a'
-                                    );
-                                    if (descriptionTitle && descriptionSource && descriptionContent && readMore) {
-                                        descriptionTitle.textContent = item.title;
-                                        descriptionSource.textContent = item.source.name;
-                                        descriptionContent.textContent = item.description;
-                                        readMore.setAttribute('href', item.url);
-                                        fragment.append(newsClone);
-                                    }
-                                }
-                            }
-                        }
+                    if (newsItem && idx % 2) newsItem.classList.add('alt');
+                    const metaPhoto: HTMLDivElement | null = newsClone.querySelector('.news__meta-photo');
+                    const metaAuthor: HTMLLIElement | null = newsClone.querySelector('.news__meta-author');
+                    const metaDate: HTMLLIElement | null = newsClone.querySelector('.news__meta-date');
+                    if (metaPhoto) {
+                        metaPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news-placeholder.jpg'})`;
+                    }
+                    if (metaAuthor) metaAuthor.textContent = item.author || item.source.name;
+                    if (metaDate) metaDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
+                    const descriptionTitle: HTMLHeadingElement | null = newsClone.querySelector(
+                        '.news__description-title'
+                    );
+                    const descriptionSource: HTMLHeadingElement | null = newsClone.querySelector(
+                        '.news__description-source'
+                    );
+                    const descriptionContent: HTMLParagraphElement | null = newsClone.querySelector(
+                        '.news__description-content'
+                    );
+                    const readMore: HTMLParagraphElement | null = newsClone.querySelector('.news__read-more a');
+                    if (descriptionTitle && descriptionSource && descriptionContent && readMore) {
+                        descriptionTitle.textContent = item.title;
+                        descriptionSource.textContent = item.source.name;
+                        descriptionContent.textContent = item.description;
+                        readMore.setAttribute('href', item.url);
+                        fragment.append(newsClone);
                     }
                 }
             }
