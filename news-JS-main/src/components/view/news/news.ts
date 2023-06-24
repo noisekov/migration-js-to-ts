@@ -8,7 +8,7 @@ class News {
         const fragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
 
-        news.forEach((item: INews, idx: number) => {
+        news.forEach((item, idx) => {
             if (newsItemTemp) {
                 const newsClone = newsItemTemp.content.cloneNode(true);
                 if (newsClone instanceof DocumentFragment) {

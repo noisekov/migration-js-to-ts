@@ -12,6 +12,7 @@ class App {
     }
 
     public start() {
+        new FindNews();
         const sources: HTMLDivElement | null = document.querySelector('.sources');
         if (sources) {
             sources.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
@@ -20,5 +21,4 @@ class App {
     }
 }
 
-new FindNews();
 export default App;
